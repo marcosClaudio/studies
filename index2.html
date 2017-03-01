@@ -1,0 +1,48 @@
+<!doctype html >
+<html lang="en" data-ng-app="BeMEAN">
+<head>
+	<meta charset="utf-8">
+	<title >Spiro</title>
+</head>
+<body data-ng-controller="JogosController as Jogo">
+
+<p>
+<label>Nome</label><br>
+<input type="text" data-ng-model="form.Jogo.name">
+<br>
+<label>Descricao</label><br>
+<input type="text" data-ng-model="form.Jogo.description">
+</p>
+
+<button data-ng-click="Jogo.buceta(form.Jogo)">Add game</button>
+<h1 style="color:rgb(88, 0, 107);">{{titulo}}</h1>
+<ul>
+<li style="color:red" data-ng-repeat="jogo in jogos">
+	{{jogo.name}} -- {{jogo.description}}
+</li>
+</ul>
+</div>
+	<script src="angular.min.js"></script>
+	<script >
+		angular.module('BeMEAN', [])
+		.controller('JogosController', JogosController);
+		JogosController['$inject'] = ['$scope'];
+
+		function JogosController($scope) {
+			$scope.titulo = "Jogos";
+			$scope.jogos = [
+				{name: 'Dragon age', description: 'RPG'}
+				,{name: 'League of Legends', description: 'Moba'}
+				,{name: 'Overwatch', description: 'FPS'}
+			];
+		}
+			var vm = this;
+			vm.add = add;
+			function add(cu) {
+				console.log('cu', cu);
+			vm.jogos.push(angular.copy(cu));
+		}
+		JogosController['$inject'] = ['$scope'];
+	</script>
+</body>
+</html>
