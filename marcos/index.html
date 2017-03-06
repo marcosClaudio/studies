@@ -1,0 +1,91 @@
+<!doctype html >
+<html lang="en" data-ng-app="BeMEAN">
+<head>
+	<meta charset="utf-8">
+	<title >Spiro{{titulo | uppercase}}</title>
+</head>
+<body data-ng-controller="UserController">
+{{2 + 2}}<br>
+
+<input type="text" data-ng-model="nome" ><br>
+<input type="text" data-ng-model="titulo">
+<h1>{{nome}}</h1>
+<label for="nome">Seu nome:
+<input type="text" data-ng-model="name">
+</label>
+{{name | truncate}}
+
+	<h1>{{titulo}}</h1>
+
+<ul>
+<li style="color:blue" data-ng-repeat="user in users">
+	{{user.name}} -- {{user.email}}
+</li>
+</ul>
+
+<div data-ng-controller="JogosController">
+	<h1 style="color:rgb(88, 0, 107);">{{titulo}}</h1>
+<ul>
+<li style="color:red" data-ng-repeat="jogo in jogos">
+	{{jogo.name}} -- {{jogo.description}}
+</li>
+</ul>
+</div>
+	<script src="angular.min.js"></script>
+	<script >
+		angular.module('BeMEAN', [])
+		.filter('reverseString', function() {
+			return function(text){
+
+				if(text) return text.split("").reverse().join("");
+			}
+		})
+
+		//define um limite de letras para o label
+		.filter('MaxLenght', function(){
+
+			return function(text){
+				if(text){
+					if(text.length <= 10) return text;
+					else return null;
+				}
+
+			}
+		})
+		//define a mesma bosta, porem com texto sem numero
+		.filter('truncate', function(){
+
+			return function(text, length, end) {
+			if(text) {
+				if(isNaN(length)) length = 10;
+				if(end === undefined) end = "...";
+				if(text.length <= length) return text;
+				else return String(text).substring(0, length) + end;
+				}	
+			};
+		})
+		.controller('UserController', UserController)
+		.controller('JogosController', JogosController);
+
+		function UserController($scope) {
+			$scope.titulo = "Be Mean";
+			$scope.users = [
+				{name: 'Jordan', email: 'jordan@hotmail.com'}
+				,{name: 'Catarina', email: 'catarina@hotmail.com'}
+				,{name: 'Sanji', email: 'sanji@hotmail.com'}
+			];
+		}
+		UserController['$inject'] = ['$scope'];
+
+		function JogosController($scope) {
+			$scope.titulo = "Jogos";
+			$scope.jogos = [
+				{name: 'Dragon age', description: 'RPG'}
+				,{name: 'League of Legends', description: 'Moba'}
+				,{name: 'Overwatch', description: 'FPS'}
+			];
+		}
+		UserController['$inject'] = ['$scope'];
+	</script>
+</body>
+</html>
