@@ -1,0 +1,69 @@
+<div> <center> 
+    <table>
+        <tr>
+            <td>
+                <md-input-container>
+                    <label>Nome</label >
+                    <input data-ng-model="user.name">
+                </md-input-container>
+            </td>
+            <td>      
+            <md-input-container > 
+                <i class="material-icons"></i>
+                <label >Email</label>
+                <input data-ng-model="user.email">
+            </md-input-container>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                </md-content>
+                <md-input-container> 
+                    <i class="material-icons"></i>
+                    <label>Telefone</label>
+                    <input data-ng-model="user.phone">
+                </md-input-container>
+            </td>
+            <td>
+        </md-content>
+            <md-input-container > 
+                <i class="material-icons"></i>
+                <label>Celular</label>
+                <input data-ng-model="user.cell">
+            </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                </md-content>
+                    <md-input-container> 
+                        <i class="material-icons"></i>
+                        <label>Empresa</label>
+                        <input data-ng-model="user.company">
+                    </md-input-container>
+                </md-content>
+            </td>
+            <td>
+                <md-input-container class="md-block" flex-gt-sm>
+                <label>Assunto</label>
+                <md-select data-ng-model="user.state">
+                <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                    {{state.abbrev}}
+                </md-option>
+                </md-select>
+                </md-input-container>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <md-input-container  class="md-block">
+                <label> Sua mensagem </label>
+                <textarea md-select-on-focus cols="50" rows="5" data-ng-model="user.message"></textarea>
+                </md-input-container>
+            </td>
+        </tr>
+    </table>
+    <md-button class="md-raised md-warn" ng-click="add()" type="submit">Enviar</md-button>
+    </center>
+</div>

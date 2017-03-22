@@ -1,0 +1,77 @@
+<html>
+<header>
+    <title>Spiro shop</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+    
+    <!-- injector:css -->
+    <!-- endinjector -->
+
+    <!-- injector:js -->
+    <script src="/script/app/app.module.js"></script>
+    <script src="/script/app/app.state.js"></script>
+    <script src="/script/app/company/company.controller.js"></script>
+    <script src="/script/app/company/company.state.js"></script>
+    <script src="/script/app/contact/contact.controller.js"></script>
+    <script src="/script/app/contact/contact.state.js"></script>
+    <script src="/script/app/home/home.controller.js"></script>
+    <script src="/script/app/home/home.state.js"></script>
+    <script src="/script/app/product/product.controller.js"></script>
+    <script src="/script/app/product/product.state.js"></script>
+    <script src="/script/app/productDescript/productDescript.controller.js"></script>
+    <script src="/script/app/productDescript/productDescript.state.js"></script>
+    <script src="/script/app/siteMap/siteMap.controller.js"></script>
+    <script src="/script/app/siteMap/siteMap.state.js"></script>
+    <!-- endinjector -->
+</header>
+<body ng-app="shop" ng-strict-di>
+    <md-toolbar style="background-color:darkred">
+        <div class="md-toolbar-tools">
+        <md-menu>
+        <md-button style="height: 36px; width: 36px" aria-label="Open phone interactions menu" ng-click="$mdMenu.open($event)" class="md-icon-button">
+        <i class="material-icons">menu</i>
+        </md-button>
+        <md-menu-content style="border-radius: 10px">
+              <md-menu-item><md-button onclick=""><i class="material-icons">arrow_back</i></md-button></md-menu-item>
+              <md-menu-item><md-button ui-sref="app.home">Inicio</md-button></md-menu-item>
+              <md-menu-item><md-button ui-sref="app.company">Empresa</md-button></md-menu-item>
+              <md-menu-item><md-button ui-sref="app.product">Produtos</md-button></md-menu-item>
+              <md-menu-item><md-button ui-sref="app.siteMap">Site Map</md-button></md-menu-item>
+              <md-menu-item><md-button ui-sref="app.contact">Contato</md-button></md-menu-item>
+            </md-menu-content>
+          </md-menu>
+          <span flex></span>
+        </div>
+    </md-toolbar>
+
+    <md-toolbar style="background-color: brown"></md-toolbar>
+
+    <div ui-view="content"></div>
+<br>
+<footer>
+    <center>
+    <div>
+        <div>
+            <p>Desenvolvido por &copy;<a target="_blank" href="http://www.wswork.com.br">WS Work</a></p>
+        </div>
+    </div>
+    </center>
+</footer>
+</body>
+</html>
